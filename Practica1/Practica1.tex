@@ -4,6 +4,7 @@
 \usepackage{textcomp}					% M\`as caracteres acentuados
 \usepackage{multicol}					% Crea ambientes donde se puede escribir en varias columnas
 \usepackage{amsmath,amssymb,amsfonts,latexsym,cancel}	% Paquete para la creaci\'on de ambientes y s\'imbolos matem\'aticos
+\usepackage{amssymb}
 %---------------------------------------------------------------------------------------------------------------------------
 \usepackage{anysize}					% Para ajustar m\'argenes del documento
 \marginsize{1cm}{1cm}{0.5cm}{0.3cm}
@@ -63,26 +64,74 @@
   /Subject  ()
   /Keywords ()
 }
-
+%-----------------Comandos creados para ayudar---------------
+ \newcommand{\real}{\mathbb{R}}
+%-------------------------------------------------------------
 \begin{document}
 \maketitle
 \section*{Conjuntos}
     \begin{enumerate}
-        \item Dado el conjunto $A=\{1,2,3\}$, determinar cúales de las siguientes afirmaciones son verdaderas
+        \item Dado el conjunto $A=\{1,2,3\}$, determinar c\'uales de las siguientes afirmaciones son verdaderas:
         \begin{enumerate}[label = \roman*)]
-            \pagenumbering{roman} 
-                \item $1\in A$ \textit{Verdadero}, 1 está el la lista de elementos de $A$.
-                \item $\{1\}\subseteq A$ \textit{Verdadero}, el conjunto $\{1\}$ es subconjunto de $A$.
-                \item $\{2,1\}\subseteq A$ \textit{Verdadero}, 
-        
+            \item $1\in A$\\
+                \textit{Verdadero}, 1 est\'a el la lista de elementos de $A$.
+            \item $\{1\}\subseteq A$\\
+                \textit{Verdadero}, el conjunto $\{1\}$ es subconjunto de $A$.
+            \item $\{2,1\}\subseteq A$\\
+                \textit{Verdadero}, en principio, los elementos de un conjunto no estan ordenados, luego $\{2,1\}=\{1,2\}$, y este conjunto es subconjunto de $A$.
+            \item $\{1,3\}\in A$\\
+                \textit{Falso}, el conjunto $\{1,3\}$ es \textit{subconjunto} de $A$, m\'as no est\'a en la lista de elementos de $A$.
+            \item $\{2\}\in A$\\
+                \textit{Falso}, Ocurre lo mismo que en el caso anterior.
+        \end{enumerate}
+        \item Dado el conjunto $A = \{1,2,\{3\},\{1,2\}\} $, determinar c\'uales de las siguientes afirmaciones son verdaderas:
+        \begin{enumerate}[label = \roman*)]
+            \item $3\in A$\\
+                \textit{Falso}, El elemento de $A$ es el conjunto $\{3\}$, no el elemento $3$.
+            \item $\{3\} \subseteq A$\\
+                \textit{Falso}, el conjunto $\{3\}$ es \textit{un elemento} de $A$, no un subconjunto.
+            \item $\{3\} \in A$\\
+                \textit{Verdadero}.
+            \item $\{\{3\}\} \subseteq A$\\
+                \textit{Verdadero}, el conjunto de un \'unico elemento $\{\{3\}\}$ es subconjunto de $A$.
+            \item $\{1,2\} \in A$\\
+                \textit{Verdadero}.
+            \item $\{1,2\} \subseteq A$\\
+                \textit{Falso}, el conjunto $\{1,2\}$ es \textit{un elemento} de $A$.
+            \item $\{\{1,2\}\} \subseteq A$\\
+                \textit{Verdadero}, dado que $\{1,2\}$ es un elemento de $A$, el conjunto creado a partir de este \'unico elemento ser\'a subconjunto de $A$.
+            \item $\{\{1,2\},3\} \subseteq A$\\
+                \textit{Falso}, el elemento $3$ no pertenece a $A$, por lo tanto cualquier conojunto que tenga a $3$ no puede ser subconjunto de $A$.
+            \item $\emptyset \in A$\\
+                \textit{Falso}, el conjunto vacio es \textit{un subconjunto} de $A$.
+            \item $\emptyset \subseteq A$\\
+                \textit{Verdadero}.
+            \item $A\in A$
+                \textit{Falso}, Todo conjunto es subconjunto de s\'i mismo\footnote{Aunque es verdad que pueden darse casos en los que por la misma definici\'on del conjunto, este puede ser parte de s\'i mismo, No en este caso.}.
+            \item $A\subseteq A$
+                \textit{Verdadero}.
+        \end{enumerate}
+        \newpage
+        \item Determinar si $A \subseteq B$ en cada uno de los siguientes casos:
+            \begin{enumerate}[label = \roman*)]
+                \item $A=\{1,2,3\}$, $B=\{5,4,3,2,1\}$\\
+                    \textit{Verdadero}. los elementos 1, 2, 3 pertenecen a los dos conjuntos.
+                 \item $A=\{1,2,3\}$, $B=\{1,2,\{3\},-3\}$\\
+                    \textit{Falso}, ya que el elemento tres no hace parte de los elementos de $B$.
+                \item $A=\{x\in \mathbb{R}/2<|x|<3\}$, $B=\{x\in \mathbb{R}/x^{2}<3\}$\\
+                    \textit{Verdadero}, ya que los intervalos donde $x$ pertenece a $A$ son $(-3,-2)$ y $(2,3)$, mientras que el intevalo donde $x$ pertenece a $B$ es $(-3,3)$
+                \item $A=\{\emptyset\}$, $B=\emptyset$
+                    \textit{Falso}, ya que $B$ es el conjunto vacio, $B$ es subconjunto propio de cualquier otro subconjunto, m\'as no tiene ning\'un subconjunto propio.
+            \end{enumerate}
+        \item Describir a los siguentes subconjuntos de $\real$ por comprensi\'on mediante \textit{una sola} ecuaci\'on:
+        \begin{enumerate}
+            \item $\{-3,1,5\}$\\
+            
+        \end{enumerate}
+
+
+
     \end{enumerate}
-    
-%\Rightarrow & x>\frac{1}{3}\wedge x\geq1\wedge x\leq0\Leftrightarrow x\in\emptyset\\
-%\Rightarrow & x>\frac{1}{3}\wedge x<1\wedge x\leq\frac{1}{2}\Leftrightarrow x\in(\frac{1}{3},\frac{1}{2})
-%\Rightarrow & x\leq\frac{1}{3}\wedge x\geq1\wedge\left(-4x\leq-2\Leftrightarrow x\geq\frac{1}{2}\right)\Leftrightarrow x\in\emptyset
-%\Rightarrow & x\leq\frac{1}{3}\wedge x<1\wedge x\geq0\Leftrightarrow x\in[0,\frac{1}{3}]
-%\therefore x\in[0,\frac{1}{2}]
-\end{enumerate}
 
 
 \end{document}
